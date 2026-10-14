@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ace Construction, Heating & Cooling LLC | High Luxury Landing Page</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxuryRed: '#ef4444',
+                        luxuryBlue: '#3b82f6',
+                        darkBg: '#090a0f',
+                        cardBg: '#12151f',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #090a0f;
+            color: #f3f4f6;
+        }
+        .glass-panel {
+            background: rgba(18, 21, 31, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(9, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(to right, #ef4444, #3b82f6);
+            padding: 1px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #ef4444 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(9, 10, 15, 0.7), rgba(9, 10, 15, 0.95)), url('https://avatars.mds.yandex.net/i?id=be8a198c7dde0d7f48551a2401c2e19690527df6-5541772-images-thumbs&n=13');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 antialiased selection:bg-luxuryRed selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-red-600 via-purple-600 to-blue-600 text-white text-xs font-semibold py-2 px-4 text-center tracking-wider uppercase">
+        <i class="fa-solid fa-star text-yellow-300 mr-2"></i> One Call, Every Trade. The Whole Property, Handled Across Southeast Missouri! <i class="fa-solid fa-star text-yellow-300 ml-2"></i>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 mt-[33px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <img src="https://theocdn.com/site-assets/d138859e-63b7-43c5-8934-b06227ab14d7/brand/ace-header-logo-crisp-7e7e74301b09fc46.webp" alt="Ace Construction, Heating & Cooling Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-semibold text-gray-300 hover:text-luxuryBlue transition-colors">Home</a>
+                <a href="#about" class="text-sm font-semibold text-gray-300 hover:text-luxuryBlue transition-colors">About</a>
+                <a href="#services" class="text-sm font-semibold text-gray-300 hover:text-luxuryBlue transition-colors">Services</a>
+                <a href="#contact" class="text-sm font-semibold text-gray-300 hover:text-luxuryBlue transition-colors">Contact</a>
+            </nav>
+
+            <!-- Call Action CTA -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="tel:5733601500" class="flex items-center space-x-2 text-sm font-bold bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-500 hover:to-blue-500 text-white px-5 py-2.5 rounded-full shadow-lg shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-phone-volume animate-bounce"></i>
+                    <span>573-360-1500</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-gray-800 px-4 pt-4 pb-6 space-y-3">
+            <a href="#home" class="block text-base font-medium text-gray-300 hover:text-luxuryBlue">Home</a>
+            <a href="#about" class="block text-base font-medium text-gray-300 hover:text-luxuryBlue">About</a>
+            <a href="#services" class="block text-base font-medium text-gray-300 hover:text-luxuryBlue">Services</a>
+            <a href="#contact" class="block text-base font-medium text-gray-300 hover:text-luxuryBlue">Contact</a>
+            <a href="tel:5733601500" class="flex items-center justify-center space-x-2 w-full bg-gradient-to-r from-red-600 to-blue-600 text-white py-3 rounded-xl font-bold mt-4">
+                <i class="fa-solid fa-phone"></i>
+                <span>Call 573-360-1500</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen hero-bg flex items-center justify-center pt-32 pb-20 overflow-hidden">
+        <!-- Glowing Ambient Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel border border-red-500/30 text-red-400 text-sm font-semibold mb-6 animate-pulse">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Licensed, Insured & Trusted Excellence</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                One Call, Every Trade. <br>
+                <span class="gradient-text">The Whole Property, Handled.</span>
+            </h1>
+            
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 mb-10 font-normal leading-relaxed">
+                HVAC, plumbing, electrical, construction, and property solutions. One trusted team for homes and businesses across Southeast Missouri.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-red-600 to-blue-600 text-white hover:opacity-95 shadow-xl shadow-red-600/20 transition-all duration-300 transform hover:-translate-y-1 text-center">
+                    Request Property Service <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold glass-panel text-white hover:bg-white/10 transition-all duration-300 text-center border border-white/10">
+                    Explore Our Services
+                </a>
+            </div>
+
+            <!-- Mini Trust Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-20">
+                <div class="glass-panel p-4 rounded-xl border border-white/5 text-center">
+                    <i class="fa-solid fa-wrench text-luxuryRed text-xl mb-2"></i>
+                    <h3 class="text-white font-bold text-sm">HVAC & Mechanical</h3>
+                    <p class="text-gray-400 text-xs mt-1">Heating & Cooling Experts</p>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border border-white/5 text-center">
+                    <i class="fa-solid fa-faucet-drip text-luxuryBlue text-xl mb-2"></i>
+                    <h3 class="text-white font-bold text-sm">Plumbing Solutions</h3>
+                    <p class="text-gray-400 text-xs mt-1">Reliable Installs & Repairs</p>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border border-white/5 text-center">
+                    <i class="fa-solid fa-paint-roller text-luxuryRed text-xl mb-2"></i>
+                    <h3 class="text-white font-bold text-sm">Exterior Painting</h3>
+                    <p class="text-gray-400 text-xs mt-1">Flawless Finishes</p>
+                </div>
+                <div class="glass-panel p-4 rounded-xl border border-white/5 text-center">
+                    <i class="fa-solid fa-house-chimney text-luxuryBlue text-xl mb-2"></i>
+                    <h3 class="text-white font-bold text-sm">Construction</h3>
+                    <p class="text-gray-400 text-xs mt-1">Remodels & Repairs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative bg-cardBg/40 border-t border-b border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- About Image with Luxury Styling -->
+                <div class="relative">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-red-600 to-blue-600 rounded-2xl blur-lg opacity-30 animate-pulse-slow"></div>
+                    <div class="relative rounded-2xl overflow-hidden glass-panel border border-white/10 shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/65527c4544ad4082a0d5711a/68b93a4b2ce33fb0f496a5f3_Cutting-Costs-900X600.jpg" alt="Ace Construction Cutting Costs & Quality Work" class="w-full h-[400px] object-cover transform hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- About Content -->
+                <div>
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-bold tracking-wider uppercase mb-4">
+                        About Ace Construction, Heating & Cooling
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+                        Built on Quality. <span class="gradient-text">Driven by Service.</span>
+                    </h2>
+                    <p class="text-gray-300 text-base leading-relaxed mb-6">
+                        Ace Construction, Heating & Cooling LLC brings construction, mechanical, property, and cleaning services together for customers across Southeast Missouri. Quality workmanship, honest communication, and dependable service are the foundation of every project.
+                    </p>
+                    <p class="text-gray-300 text-base leading-relaxed mb-8">
+                        Your home or business is a significant investment. Our goal is to provide practical solutions tailored to the project, the property, and the budget—with one point of contact for all your property needs.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-lg bg-red-600/20 flex items-center justify-center flex-shrink-0 text-red-500 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Residential & Commercial</h4>
+                                <p class="text-gray-400 text-xs mt-0.5">Repairs & planned projects</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center flex-shrink-0 text-blue-500 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Multiple Trades</h4>
+                                <p class="text-gray-400 text-xs mt-0.5">One team across trades</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-red-500/10 text-red-400 text-xs font-bold tracking-wider uppercase mb-4">
+                    Our Expertise
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">
+                    Specialized <span class="gradient-text">Property Services</span>
+                </h2>
+                <p class="text-gray-400 text-base">
+                    From urgent system repairs to complete structural improvements and fine cosmetic finishing, Ace handles it all.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1: HVAC -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group hover:border-red-500/50 transition-all duration-300 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-60"></div>
+                        <img src="https://luch-klimat.ru/upload/iblock/635/pl5ainyp68s1s7v5j02apc1dgk3vnms2.jpg" alt="HVAC Services" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 z-20 bg-red-600 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-md">HVAC</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-luxuryRed transition-colors">Heating & Cooling</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">
+                            Complete HVAC installation, diagnostics, preventive maintenance, and urgent climate control support for homes and businesses.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-sm font-bold text-red-400 hover:text-red-300">
+                            Book HVAC Service <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Plumbing -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group hover:border-blue-500/50 transition-all duration-300 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-60"></div>
+                        <img src="https://www.urbansplatter.com/wp-content/uploads/2024/11/Professional-Plumbing-Installation-in-Houston-tx-1024x574-1.webp" alt="Plumbing Services" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 z-20 bg-blue-600 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-md">Plumbing</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-luxuryBlue transition-colors">Professional Plumbing</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">
+                            Expert plumbing installations, emergency leak fixes, fixture repairs, pipe maintenance, and comprehensive system care.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-sm font-bold text-blue-400 hover:text-blue-300">
+                            Book Plumbing Service <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Exterior Painting -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group hover:border-red-500/50 transition-all duration-300 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-60"></div>
+                        <img src="https://images.ctfassets.net/s4ybdu2ld1ox/6gsyUQLuKI2EHL4Uii0cAy/2955e740a65e6e32ba1fec75d614f987/houseidea_paint-1.jpg?w=1200&h=799&fl=progressive&q=70&fm=jpg&bg=transparent" alt="Exterior Painting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 z-20 bg-red-600 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-md">Painting</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-luxuryRed transition-colors">Exterior Painting</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">
+                            Transform your property curb appeal with high-grade weather-resistant exterior painting, priming, and protective coating applications.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-sm font-bold text-red-400 hover:text-red-300">
+                            Book Painting Service <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Wall Finish Repair -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group hover:border-blue-500/50 transition-all duration-300 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-60"></div>
+                        <img src="https://avatars.mds.yandex.net/i?id=c4c8e9b7e7a05a43a89a35f72af23a98b747db43-4304172-images-thumbs&n=13" alt="Wall Finish Repair" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 z-20 bg-blue-600 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-md">Finishing</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-luxuryBlue transition-colors">Wall Finish Repair</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">
+                            Flawless drywall patching, texture restoration, surface smoothing, and specialized finish repairs ready for final paint or coating.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-sm font-bold text-blue-400 hover:text-blue-300">
+                            Book Repair Service <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative bg-cardBg/30 border-t border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-bold tracking-wider uppercase mb-4">
+                    Get In Touch
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">
+                    Ready to <span class="gradient-text">Start Your Project?</span>
+                </h2>
+                <p class="text-gray-400 text-base">
+                    Reach out to our team today for scheduling, service requests, or prompt assistance with your home or business.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Contact Info Card & Details -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 flex flex-col justify-between space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                        <p class="text-gray-300 text-sm mb-8 leading-relaxed">
+                            Serving homes and businesses throughout Southeast Missouri. Contact us directly or fill out the form, and our professional team will get back to you promptly.
+                        </p>
+                        
+                        <ul class="space-y-6">
+                            <li class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-phone text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider">Phone Number</span>
+                                    <a href="tel:5733601500" class="text-lg font-bold text-white hover:text-red-400 transition-colors">573-360-1500</a>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-500 flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider">Business Email</span>
+                                    <a href="mailto:mail@aceconstructionheatingandcooling.com" class="text-base font-bold text-white hover:text-blue-400 transition-colors">mail@aceconstructionheatingandcooling.com</a>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold text-gray-400 uppercase tracking-wider">Address / Service Area</span>
+                                    <span class="text-base font-bold text-white">1245 County Hwy 522, Parma, MO 63870</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="pt-6 border-t border-gray-800">
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase tracking-wider">Business Hours</h4>
+                        <p class="text-sm text-gray-300">Mon–Fri: 8:00 am–5:00 pm | Sat: 10:00 am–3:30 pm | Sun: Closed</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-white/10">
+                    <h3 class="text-2xl font-bold text-white mb-6">Send Us a Request</h3>
+                    <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully. We will contact you soon.');" class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Full Name</label>
+                            <input type="text" required placeholder="John Doe" class="w-full bg-darkBg/80 border border-gray-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-sm">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Phone Number</label>
+                                <input type="tel" required placeholder="(573) 000-0000" class="w-full bg-darkBg/80 border border-gray-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Email Address</label>
+                                <input type="email" required placeholder="john@example.com" class="w-full bg-darkBg/80 border border-gray-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Service Needed</label>
+                            <select class="w-full bg-darkBg/80 border border-gray-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm">
+                                <option>HVAC (Heating & Cooling)</option>
+                                <option>Plumbing Services</option>
+                                <option>Exterior Painting</option>
+                                <option>Wall Finish Repair</option>
+                                <option>General Construction / Remodeling</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Tell Us What's Going On</label>
+                            <textarea rows="4" placeholder="Describe the project or issue details..." class="w-full bg-darkBg/80 border border-gray-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-red-600 to-blue-600 text-white hover:opacity-95 shadow-lg shadow-blue-600/20 transition-all duration-300">
+                            Submit Request <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & GMB Map Section -->
+    <footer class="bg-black pt-20 pb-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-6">
+                    <img src="https://theocdn.com/site-assets/d138859e-63b7-43c5-8934-b06227ab14d7/brand/ace-header-logo-crisp-7e7e74301b09fc46.webp" alt="Ace Construction Logo" class="h-10 w-auto">
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Ace Construction, Heating & Cooling LLC provides comprehensive residential and commercial trades across Southeast Missouri. One trusted team, zero hassle.
+                    </p>
+                    <div class="flex space-x-4 text-gray-400">
+                        <a href="#" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center hover:text-white hover:bg-red-600 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center hover:text-white hover:bg-blue-600 transition-all"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center hover:text-white hover:bg-blue-500 transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div>
+                    <h4 class="text-white font-bold text-base mb-6 tracking-wide">Quick Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-luxuryBlue text-sm transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-luxuryBlue text-sm transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-luxuryBlue text-sm transition-colors">Services & Trades</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-luxuryBlue text-sm transition-colors">Contact & Location</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: GMB Map Embed -->
+                <div>
+                    <h4 class="text-white font-bold text-base mb-6 tracking-wide">Google Business Location</h4>
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-xl w-full h-[250px]">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d817744.8799311172!2d-89.87741199999999!3d36.810948499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45f9cde91ddb81f5%3A0x8e190540e251a1a8!2sAce%20Construction%2C%20Heating%20%26%20Cooling%20LLC!5e0!3m2!1sen!2s!4v1792002912363!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-gray-900 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 Ace Construction, Heating & Cooling LLC. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-400">Cookie Preferences</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Mobile Menu Toggle Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
